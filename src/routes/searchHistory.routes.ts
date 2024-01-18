@@ -1,6 +1,14 @@
-import { Router } from 'express';
-import { getSearchHistory } from '../service/searchHistory.service';
+import { Router } from "express";
+import {
+  deleteSearchHistoryController,
+  getSearchHistoryController,
+  postSearchHistoryController,
+} from "../controller/searchHistory.controller";
 
 const searchHistoryRouter = Router();
 
-searchHistoryRouter.get('/', getSearchHistory);
+searchHistoryRouter.get("/", getSearchHistoryController);
+searchHistoryRouter.post("/new", postSearchHistoryController);
+searchHistoryRouter.delete("/clear", deleteSearchHistoryController);
+
+export default searchHistoryRouter;
